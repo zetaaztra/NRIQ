@@ -1,0 +1,225 @@
+What is NRQL?
+
+NRQL (New Relic Query Language) is a query language similar to SQL, used in New Relic to query and analyze data stored in its platform. It is primarily used for creating custom dashboards, visualizations, alerts, and insights from application and infrastructure data.
+
+
+---
+
+Basics of Writing a NRQL Query
+
+1. Structure of a NRQL Query:
+
+SELECT <function>(<attribute>) 
+FROM <eventType> 
+WHERE <conditions> 
+SINCE <timeframe> 
+UNTIL <timeframe> 
+FACET <attribute> 
+LIMIT <number>
+
+
+2. Key Components:
+
+SELECT: Specify what to query (e.g., functions like average, sum, count).
+
+FROM: Specify the event type or data source (e.g., Transaction, PageView, Log).
+
+WHERE: Add conditions to filter results.
+
+SINCE/UNTIL: Define the time range (e.g., SINCE 30 minutes ago).
+
+FACET: Group results by an attribute (e.g., FACET appName).
+
+LIMIT: Limit the number of results returned (default is 10).
+
+
+
+
+
+---
+
+Common NRQL Functions
+
+1. Aggregations:
+
+average(attribute)
+
+sum(attribute)
+
+count(attribute)
+
+max(attribute)
+
+min(attribute)
+
+
+
+2. Mathematical Operations:
+
+rate(count(attribute), time period)
+
+percentage(value, total)
+
+
+
+3. Custom Calculations:
+
+SELECT (function(attribute) * 100) / total FROM ...
+
+
+
+
+
+---
+
+Basic NRQL Query Examples
+
+1. Find the average response time of all transactions:
+
+SELECT average(duration) 
+FROM Transaction 
+SINCE 1 hour ago
+
+
+2. Count the number of page views in the last 30 minutes:
+
+SELECT count(*) 
+FROM PageView 
+SINCE 30 minutes ago
+
+
+3. Get error rate percentage by application:
+
+SELECT percentage(count(*), WHERE error IS true) 
+FROM Transaction 
+FACET appName 
+SINCE 1 week ago
+
+
+4. List the top 5 pages with the highest load time:
+
+SELECT max(duration) 
+FROM PageView 
+FACET pageUrl 
+SINCE 1 day ago 
+LIMIT 5
+
+
+
+
+---
+
+Use Cases of NRQL with Examples
+
+1. Monitoring Application Performance
+
+Query:
+
+SELECT average(duration) 
+FROM Transaction 
+WHERE appName = 'MyApp' 
+SINCE 1 hour ago
+
+Use Case: Monitor the average transaction response time for a specific application.
+
+
+---
+
+2. Analyzing User Behavior
+
+Query:
+
+SELECT count(*) 
+FROM PageView 
+WHERE countryCode = 'US' 
+SINCE 1 day ago
+
+Use Case: Count the number of page views from users in the United States.
+
+
+---
+
+3. Detecting Errors
+
+Query:
+
+SELECT count(*) 
+FROM Transaction 
+WHERE error IS true 
+SINCE 1 week ago
+
+Use Case: Identify how many transactions failed in the last week.
+
+
+---
+
+4. Infrastructure Monitoring
+
+Query:
+
+SELECT average(cpuPercent), max(memoryPercent) 
+FROM SystemSample 
+WHERE hostname = 'server-1' 
+SINCE 1 hour ago
+
+Use Case: Monitor CPU and memory usage of a specific server.
+
+
+---
+
+5. Alert Creation
+
+Query:
+
+SELECT count(*) 
+FROM Transaction 
+WHERE error IS true 
+SINCE 5 minutes ago
+
+Use Case: Set up an alert to notify if there are transaction errors in the last 5 minutes.
+
+
+---
+
+6. Tracking API Performance
+
+Query:
+
+SELECT average(duration), percentage(count(*), WHERE httpResponseCode = '200') 
+FROM Transaction 
+WHERE name = 'API/getUserDetails' 
+SINCE 1 day ago
+
+Use Case: Monitor average response time and success rate for a specific API endpoint.
+
+
+---
+
+Tips for Writing NRQL Queries
+
+1. Use FACET for Grouping: Group data by attributes like appName, transactionName, or pageUrl.
+
+Example: FACET appName groups data by application.
+
+
+
+2. Leverage Aggregations: Use count, average, max, min, and sum to summarize data.
+
+
+3. Apply Filters: Use WHERE clauses to focus on specific data points.
+
+Example: WHERE countryCode = 'IN' filters data for users in India.
+
+
+
+4. Optimize Time Ranges: Use SINCE and UNTIL to limit the time range of queries.
+
+
+5. Experiment in New Relic Query Builder: Use the built-in query editor for real-time feedback while building queries.
+
+
+
+
+---
+
+Let me know if you'd like deeper insights into specific use cases or query optimizations!
