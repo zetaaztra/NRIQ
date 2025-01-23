@@ -1,0 +1,522 @@
+General Questions
+
+1. Q: What is New Relic, and why is it important?
+A: New Relic is a performance monitoring tool that provides insights into application performance, infrastructure health, and end-user experience. It helps detect, diagnose, and resolve issues faster, ensuring optimal performance.
+
+
+2. Q: Explain the key features of New Relic APM.
+A: New Relic APM provides real-time application performance monitoring, error tracking, transaction tracing, service maps, and custom metrics.
+
+
+3. Q: What is Real User Monitoring (RUM)?
+A: RUM tracks the end-user experience by monitoring interactions, page load times, geographic distribution, and browser-specific performance.
+
+
+4. Q: How does infrastructure monitoring differ from APM in New Relic?
+A: APM focuses on application-level performance, while infrastructure monitoring tracks the health and performance of underlying resources like servers, VMs, and containers.
+
+
+5. Q: What is synthetic monitoring, and how does Catchpoint complement New Relic?
+A: Synthetic monitoring uses simulated user interactions to test application performance, uptime, and reliability. Catchpoint extends this by providing detailed insights into internet performance and external dependencies.
+
+
+
+
+---
+
+Setup and Configuration
+
+6. Q: How do you install a New Relic agent for a Java application?
+A: Download the New Relic agent, add it to the application server, update the newrelic.yml file with the license key, and restart the application.
+
+
+7. Q: What steps are involved in configuring New Relic for a Node.js application?
+A: Install the newrelic npm package, add the license key to the newrelic.js configuration file, and require New Relic in the application entry file.
+
+
+8. Q: How do you enable RUM for a web application?
+A: Embed the RUM JavaScript snippet provided by New Relic into the <head> section of the application’s HTML.
+
+
+9. Q: What are the prerequisites for using New Relic Infrastructure monitoring?
+A: Ensure the server or cloud instance supports the New Relic Infrastructure agent, install the agent, and configure integrations as needed.
+
+
+10. Q: How would you monitor a mobile app using New Relic?
+A: Integrate the New Relic Mobile SDK into the app code and configure it with the app's license key.
+
+
+
+
+---
+
+Monitoring and Alerts
+
+11. Q: How do you create a custom alert policy in New Relic?
+A: Go to the Alerts & AI section, create a new alert policy, add conditions (e.g., CPU usage > 80%), and configure notification channels like email or Slack.
+
+
+12. Q: What are key metrics to monitor in an application?
+A: Response time, error rate, throughput, database query performance, and external service call latency.
+
+
+13. Q: How can you use New Relic to troubleshoot slow transactions?
+A: Use transaction traces to identify slow endpoints, bottlenecks in the code, or slow database queries.
+
+
+14. Q: How do distributed traces work in New Relic?
+A: Distributed traces follow requests across services, showing where latency or errors occur in a microservices environment.
+
+
+15. Q: What is an NRQL alert condition?
+A: It’s an alert based on a custom query written in New Relic Query Language (NRQL) to monitor specific metrics or conditions.
+
+
+
+
+---
+
+Troubleshooting
+
+16. Q: How would you resolve an issue where the New Relic agent isn’t reporting data?
+A: Check the agent logs, validate the license key, ensure the application server is running, and verify network connectivity to New Relic’s endpoints.
+
+
+17. Q: What would you do if you see high error rates in an application?
+A: Investigate the error logs, identify failing endpoints or services, and work with the team to resolve the root cause.
+
+
+18. Q: How do you debug a high memory usage alert?
+A: Use infrastructure monitoring to identify memory-intensive processes, review application logs, and check for memory leaks.
+
+
+19. Q: How do you identify database bottlenecks in New Relic?
+A: Use the Database tab in APM to view slow queries, analyze query plans, and identify long-running or frequently called queries.
+
+
+20. Q: How do you handle synthetic test failures?
+A: Review the synthetic script, verify network availability, and check the logs for detailed error messages.
+
+
+
+
+---
+
+Collaboration and Agile Practices
+
+21. Q: How would you onboard a new application to New Relic?
+A: Work with the application team to understand the architecture, choose the appropriate agents, configure settings, and test the setup.
+
+
+22. Q: How do you ensure teams are trained in using New Relic effectively?
+A: Provide documentation, conduct workshops, and offer hands-on training sessions.
+
+
+23. Q: How do you prioritize monitoring requirements in an Agile environment?
+A: Use sprint planning to align monitoring needs with business goals and adjust based on feedback during retrospectives.
+
+
+24. Q: How do you work with vendors to resolve critical issues?
+A: Escalate the issue with detailed logs and steps to reproduce, then coordinate follow-ups until resolution.
+
+
+25. Q: How do you handle conflicting priorities in an Agile sprint?
+A: Collaborate with stakeholders to understand business impact and adjust priorities accordingly.
+
+
+
+
+---
+
+Advanced Topics
+
+26. Q: What is New Relic One, and how does it differ from classic New Relic?
+A: New Relic One is the unified platform for monitoring apps, infrastructure, and end-user experience with enhanced features like entity explorer and advanced dashboards.
+
+
+27. Q: What is New Relic’s Telemetry Data Platform?
+A: It’s a system that ingests, stores, and queries telemetry data (logs, metrics, traces) from various sources.
+
+
+28. Q: How do you integrate New Relic with third-party tools?
+A: Use APIs, webhooks, or pre-built integrations to connect tools like Slack, PagerDuty, or Jenkins.
+
+
+29. Q: What is an application map in New Relic?
+A: A visual representation of all connected services, dependencies, and data flows in an application.
+
+
+30. Q: How do you measure the impact of code changes on performance using New Relic?
+A: Compare performance metrics before and after deployment using APM and distributed tracing.
+
+Advanced APM Monitoring
+
+31. Q: What are Key Transactions in New Relic, and why are they important?
+A: Key Transactions are specific transactions or endpoints critical to business operations. Monitoring them ensures they meet SLAs.
+
+
+32. Q: How do you monitor background jobs or tasks in New Relic?
+A: Use custom instrumentation to track background jobs and include them in APM.
+
+
+33. Q: What is the Apdex score in New Relic?
+A: It’s a user satisfaction metric calculated based on response times: Satisfied, Tolerating, and Frustrated thresholds.
+
+
+34. Q: How do you monitor external services in New Relic?
+A: Use external service monitoring to track response times and error rates for third-party APIs.
+
+
+35. Q: How can New Relic help optimize slow database queries?
+A: Use the Database tab in APM to identify slow queries, analyze execution plans, and suggest indexing.
+
+
+36. Q: How would you set up distributed tracing across microservices?
+A: Ensure each service has a New Relic agent and enable distributed tracing in the configuration.
+
+
+37. Q: What are service maps in New Relic, and how do they assist in troubleshooting?
+A: Service maps visually display interactions between application services and help identify bottlenecks.
+
+
+38. Q: How do you monitor error rates effectively in New Relic?
+A: Configure error analytics, group errors by type, and set up alerts for high error rates.
+
+
+39. Q: What is the difference between throughput and response time in APM?
+A: Throughput is the number of requests processed, while response time measures how long it takes to process them.
+
+
+40. Q: How do you handle a memory leak in an application using New Relic?
+A: Use heap and garbage collection metrics in APM to identify excessive memory usage.
+
+
+
+
+---
+
+Infrastructure Monitoring
+
+41. Q: What is an integration in New Relic Infrastructure?
+A: An integration connects New Relic with specific technologies (e.g., AWS, Docker, Kubernetes) to monitor them.
+
+
+42. Q: How do you set up alerts for disk usage in New Relic?
+A: Create an alert condition with a threshold for disk usage, and assign it to an alert policy.
+
+
+43. Q: What is Golden Signal monitoring?
+A: It’s the practice of monitoring four key metrics: Latency, Traffic, Errors, and Saturation.
+
+
+44. Q: How do you monitor a Kubernetes pod’s resource usage?
+A: Install the New Relic Infrastructure agent and Kubernetes integration to monitor pod-level metrics.
+
+
+45. Q: What is a host not reporting alert in New Relic?
+A: It notifies you when a server stops sending data, potentially indicating a failure.
+
+
+46. Q: How do you create a custom dashboard for infrastructure metrics?
+A: Use New Relic’s Dashboard feature to add widgets for CPU, memory, network, and custom metrics.
+
+
+47. Q: How do you analyze container performance in New Relic?
+A: Use container monitoring features to track resource usage, container restarts, and health checks.
+
+
+48. Q: What is anomaly detection in New Relic Infrastructure?
+A: It uses AI to identify unusual behavior in metrics like CPU or memory usage.
+
+
+49. Q: How do you troubleshoot high CPU usage on a server?
+A: Use Infrastructure monitoring to identify processes consuming CPU and analyze application performance.
+
+
+50. Q: How do you configure cloud provider integrations (e.g., AWS) in New Relic?
+A: Use the New Relic cloud integration setup wizard and provide API credentials.
+
+
+
+
+---
+
+Real User Monitoring (RUM)
+
+51. Q: How do you use RUM to track user sessions?
+A: Enable session traces to monitor user interactions and session durations.
+
+
+52. Q: How does RUM help improve page load times?
+A: It identifies slow-loading assets, browser-specific issues, and geographic latency.
+
+
+53. Q: What is Core Web Vitals, and can New Relic measure it?
+A: Core Web Vitals are Google’s user experience metrics (LCP, FID, CLS), and RUM tracks them.
+
+
+54. Q: How do you monitor single-page applications (SPAs) using RUM?
+A: Enable browser monitoring with SPA-specific configurations.
+
+
+55. Q: How do you configure RUM for geographic performance analysis?
+A: Enable geographic breakdowns in RUM settings to analyze region-specific performance.
+
+
+56. Q: How does RUM help monitor JavaScript errors?
+A: It collects error data from the browser, including stack traces and affected users.
+
+
+57. Q: How do you optimize third-party scripts using RUM?
+A: Analyze script load times and their impact on page performance, then prioritize critical scripts.
+
+
+58. Q: What are custom attributes in RUM?
+A: Additional metadata (e.g., user type, session ID) you can add to RUM events for detailed analysis.
+
+
+59. Q: How do you debug high bounce rates using RUM?
+A: Review session traces and identify performance issues affecting first impressions.
+
+
+60. Q: How do you measure front-end performance in New Relic?
+A: Use browser monitoring metrics like DOM load time, page load time, and JavaScript execution time.
+
+
+
+
+---
+
+Synthetic Monitoring
+
+61. Q: How do you create a synthetic test in Catchpoint?
+A: Define the test type (e.g., HTTP, DNS), configure the script, and set test locations.
+
+
+62. Q: What are common use cases for synthetic monitoring?
+A: Monitoring uptime, API performance, and critical user flows.
+
+
+63. Q: How do you configure synthetic monitoring for login workflows?
+A: Write a synthetic script to simulate user login and validate expected responses.
+
+
+64. Q: What is a synthetic failure alert, and how do you handle it?
+A: An alert for failed tests; analyze logs and scripts to identify issues.
+
+
+65. Q: How do you combine synthetic monitoring with RUM?
+A: Use synthetic tests for proactive monitoring and RUM for real-user behavior analysis.
+
+
+
+
+---
+
+Integrations and Customization
+
+66. Q: How do you use New Relic APIs to extract custom data?
+A: Use the REST API or GraphQL to query metrics, events, and logs.
+
+
+67. Q: How do you integrate New Relic with Slack for alert notifications?
+A: Set up a webhook channel in Slack and configure it in New Relic alerts.
+
+
+68. Q: What is NRQL, and how do you use it?
+A: New Relic Query Language is used to write queries for custom metrics and dashboards.
+
+
+69. Q: How do you use New Relic logs for debugging?
+A: Ingest logs into New Relic, filter them by service or error type, and analyze patterns.
+
+
+70. Q: How do you use Terraform to configure New Relic?
+A: Use the New Relic Terraform provider to automate alert, dashboard, and integration setups.
+
+
+
+
+---
+
+Agile Practices
+
+71. Q: How do you ensure monitoring tasks fit into Agile sprints?
+A: Break down tasks into user stories and prioritize based on business goals.
+
+
+72. Q: How do you handle monitoring-related feedback during retrospectives?
+A: Discuss gaps in monitoring or alerts and create action items to improve them.
+
+
+73. Q: How do you work with cross-functional teams to set up monitoring?
+A: Collaborate during planning sessions to identify requirements and align solutions.
+
+
+74. Q: How do you manage incident response in an Agile team?
+A: Use incident retrospectives to document lessons learned and create follow-up tasks.
+
+
+75. Q: How do you align monitoring goals with product goals?
+A: Regularly review monitoring data and ensure it supports product KPIs.
+
+
+
+
+---
+
+Scenario-Based Questions
+
+76. Q: How would you troubleshoot a sudden spike in error rates?
+A: Analyze APM error analytics, check recent deployments, and investigate logs.
+
+
+77. Q: How would you set up monitoring for a new microservice?
+A: Install the agent, configure distributed tracing, and set up custom alerts.
+
+
+78. Q: How would you optimize alerts to reduce noise?
+A: Use dynamic thresholds, anomaly detection, and refine alert conditions.
+
+
+79. Q: How would you onboard a legacy application to New Relic?
+A: Assess compatibility, install appropriate agents, and configure basic monitoring.
+
+
+80. Q: How would you measure the ROI of monitoring tools?
+A: Compare MTTR, downtime reduction, and performance improvements before and after implementation.
+
+Advanced Troubleshooting and Optimization
+
+81. Q: How would you handle an application that has intermittent performance issues?
+A: Use distributed tracing to track transactions, correlate metrics, and analyze performance across all components during the time of the issue.
+
+
+82. Q: How do you approach a situation where the application is experiencing high latency?
+A: Identify slow endpoints, analyze response time breakdowns in APM, check database query times, and evaluate infrastructure metrics like CPU and memory.
+
+
+83. Q: What steps would you take to debug an increase in database query time in New Relic?
+A: Check the "Database" section in APM, identify long-running queries, review execution plans, and suggest optimizations like indexing or query refactoring.
+
+
+84. Q: How would you troubleshoot API failures detected in synthetic monitoring?
+A: Review synthetic logs, analyze response codes, inspect the API endpoint in APM, and confirm backend service health.
+
+
+85. Q: How would you use New Relic logs to investigate a failed transaction?
+A: Search logs by transaction ID, filter errors by severity, and trace the transaction path to identify root causes.
+
+
+86. Q: What would you do if New Relic shows a memory leak in an application?
+A: Investigate memory heap usage, analyze garbage collection patterns, and profile the application to identify the code causing the leak.
+
+
+87. Q: How would you respond to alert fatigue in a team using New Relic?
+A: Optimize alert conditions, use intelligent alerting features like anomaly detection, and group related alerts into a single incident.
+
+
+
+
+---
+
+New Relic Customization and Advanced Features
+
+88. Q: How do you create a custom NRQL alert condition?
+A: Write a NRQL query to monitor specific metrics or events and configure a threshold for the alert.
+
+
+89. Q: What are custom events in New Relic, and how do you create them?
+A: Custom events are user-defined data sent to New Relic Insights. Use the API or agents to send custom data.
+
+
+90. Q: How do you monitor non-standard applications with no official agent support in New Relic?
+A: Use New Relic’s OpenTelemetry integration or custom instrumentation via the API.
+
+
+91. Q: How do you use dashboards to align monitoring with business KPIs?
+A: Create custom widgets displaying metrics like revenue-impacting errors, user sessions, and key transactions.
+
+
+92. Q: What is the purpose of tagging in New Relic, and how do you use it?
+A: Tags help organize and filter entities. Use them to categorize applications by environment, region, or service type.
+
+
+93. Q: How do you configure alert notifications for different teams?
+A: Create separate notification channels (e.g., email, Slack, PagerDuty) for each team and assign them to specific alert policies.
+
+
+94. Q: How do you export monitoring data from New Relic for reporting?
+A: Use the API or download data from dashboards as CSV files.
+
+
+
+
+---
+
+Cross-Team Collaboration and Agile Practices
+
+95. Q: How do you ensure developers adopt monitoring best practices?
+A: Conduct training sessions, provide playbooks for using New Relic, and integrate monitoring into the CI/CD pipeline.
+
+
+96. Q: How do you handle conflicting priorities between teams when implementing monitoring?
+A: Collaborate with stakeholders to align monitoring goals with business objectives and prioritize accordingly.
+
+
+97. Q: How do you support teams in configuring New Relic for their platforms?
+A: Provide documentation, assist with agent installation, and help customize dashboards and alerts as per their requirements.
+
+
+98. Q: How do you ensure monitoring setup is agile and adaptable?
+A: Regularly review monitoring configurations during retrospectives and incorporate feedback for improvement.
+
+
+
+
+---
+
+Vendor and Stakeholder Interaction
+
+99. Q: How do you handle escalations with New Relic product vendors?
+A: Document the issue, gather relevant data, and engage the vendor support team through proper channels for resolution.
+
+
+100. Q: How do you demonstrate the value of New Relic to stakeholders?
+A: Share metrics like reduced downtime, improved MTTR, and detailed insights from monitoring data that align with business goals.
+
+
+101. Q: What do you do if the product vendor suggests a solution that impacts other applications?
+A: Assess the solution’s impact, consult with relevant teams, and implement mitigations to minimize disruptions.
+
+
+102. Q: How do you handle requests for new features or enhancements in New Relic?
+A: Collect requirements from teams, evaluate feasibility, and work with vendors or internal teams to implement them.
+
+
+
+
+---
+
+Incident Management and Automation
+
+103. Q: How do you automate incident responses using New Relic?
+A: Integrate New Relic alerts with automation tools like PagerDuty or Rundeck to trigger predefined scripts or workflows.
+
+
+104. Q: What steps do you take during a post-incident analysis?
+A: Review APM data, error logs, and incident timelines, and document root causes and corrective actions.
+
+
+105. Q: How do you ensure alerts are actionable during incidents?
+A: Configure clear alert descriptions, include remediation steps, and avoid redundant notifications.
+
+
+
+
+---
+
+Let me know if you'd like additional questions or detailed answers for specific topics!
+
+
+
